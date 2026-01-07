@@ -35,7 +35,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     """Validate the user input allows us to connect."""
     ip_address = data[CONF_IP_ADDRESS]
     
-    url = f"http://{ip_address}"
+    url = f"http://{ip_address}/v1/json"
 
     session = async_get_clientsession(hass)
     

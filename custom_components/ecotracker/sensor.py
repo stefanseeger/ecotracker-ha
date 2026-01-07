@@ -45,7 +45,7 @@ async def async_setup_entry(
     ip_address = entry.data[CONF_IP_ADDRESS]
     scan_interval = entry.data.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL)
     
-    url = f"http://{ip_address}"
+    url = f"http://{ip_address}/v1/json"
     
     session = async_get_clientsession(hass)
     coordinator = EcotrackerCoordinator(hass, session, url, scan_interval)
