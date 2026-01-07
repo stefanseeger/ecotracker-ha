@@ -1,6 +1,6 @@
 # Ecotracker Home Assistant Integration
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
+Give me a tip: [paypal.me/StefanSeeger](https://www.paypal.com/paypalme/StefanSeeger)
 
 Custom integration for Ecotracker energy monitoring device.
 
