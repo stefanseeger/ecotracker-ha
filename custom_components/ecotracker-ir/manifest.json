@@ -5,9 +5,9 @@
     "@stefanseeger"
   ],
   "config_flow": true,
-  "documentation": "https://github.com/stefanseeger/ecotracker-ha",
+  "documentation": "https://github.com/stefanseeger/ecotracker-ir",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/stefanseeger/ecotracker-ha/issues",
+  "issue_tracker": "https://github.com/stefanseeger/ecotracker-ir/issues",
   "requirements": [],
   "version": "1.0.2"
 }
