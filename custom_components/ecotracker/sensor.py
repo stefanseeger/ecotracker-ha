@@ -54,6 +54,10 @@ async def async_setup_entry(
     
     entities = [
         EcotrackerPowerSensor(coordinator, entry),
+        EcotrackerPowerPhase1Sensor(coordinator, entry),
+        EcotrackerPowerPhase2Sensor(coordinator, entry),
+        EcotrackerPowerPhase3Sensor(coordinator, entry),
+        EcotrackerPowerAvgSensor(coordinator, entry),
         EcotrackerEnergyInSensor(coordinator, entry),
         EcotrackerEnergyOutSensor(coordinator, entry),
     ]
@@ -90,7 +94,7 @@ class EcotrackerCoordinator(DataUpdateCoordinator):
                         raise UpdateFailed(f"Error fetching data: HTTP {response.status}")
                     data = await response.json()
                     
-                    if not all(key in data for key in ["power", "energyCounterIn", "energyCounterOut"]):
+                    if not all(key in data for key in ["power", "powerPhase1", "powerPhase2", "powerPhase3", "powerAvg", "energyCounterIn", "energyCounterOut"]):
                         raise UpdateFailed("Missing required keys in response")
                     
                     return data
@@ -138,6 +142,78 @@ class EcotrackerPowerSensor(EcotrackerSensorBase):
         return self.coordinator.data.get("power")
 
 
+class EcotrackerPowerPhase1Sensor(EcotrackerSensorBase):
+    """Representation of Ecotracker Power Phase 1 Sensor."""
+
+    def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
+        """Initialize the sensor."""
+        super().__init__(coordinator, entry)
+        self._attr_name = "Power Phase 1"
+        self._attr_unique_id = f"{entry.entry_id}_power_phase1"
+        self._attr_device_class = SensorDeviceClass.POWER
+        self._attr_state_class = SensorStateClass.MEASUREMENT
+        self._attr_native_unit_of_measurement = UnitOfPower.WATT
+
+    @property
+    def native_value(self):
+        """Return the state of the sensor."""
+        return self.coordinator.data.get("powerPhase1")
+
+
+class EcotrackerPowerPhase2Sensor(EcotrackerSensorBase):
+    """Representation of Ecotracker Power Phase 2 Sensor."""
+
+    def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
+        """Initialize the sensor."""
+        super().__init__(coordinator, entry)
+        self._attr_name = "Power Phase 2"
+        self._attr_unique_id = f"{entry.entry_id}_power_phase2"
+        self._attr_device_class = SensorDeviceClass.POWER
+        self._attr_state_class = SensorStateClass.MEASUREMENT
+        self._attr_native_unit_of_measurement = UnitOfPower.WATT
+
+    @property
+    def native_value(self):
+        """Return the state of the sensor."""
+        return self.coordinator.data.get("powerPhase2")
+
+
+class EcotrackerPowerPhase3Sensor(EcotrackerSensorBase):
+    """Representation of Ecotracker Power Phase 3 Sensor."""
+
+    def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
+        """Initialize the sensor."""
+        super().__init__(coordinator, entry)
+        self._attr_name = "Power Phase 3"
+        self._attr_unique_id = f"{entry.entry_id}_power_phase3"
+        self._attr_device_class = SensorDeviceClass.POWER
+        self._attr_state_class = SensorStateClass.MEASUREMENT
+        self._attr_native_unit_of_measurement = UnitOfPower.WATT
+
+    @property
+    def native_value(self):
+        """Return the state of the sensor."""
+        return self.coordinator.data.get("powerPhase3")
+
+
+class EcotrackerPowerAvgSensor(EcotrackerSensorBase):
+    """Representation of Ecotracker Power Average Sensor."""
+
+    def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
+        """Initialize the sensor."""
+        super().__init__(coordinator, entry)
+        self._attr_name = "Power Average"
+        self._attr_unique_id = f"{entry.entry_id}_power_avg"
+        self._attr_device_class = SensorDeviceClass.POWER
+        self._attr_state_class = SensorStateClass.MEASUREMENT
+        self._attr_native_unit_of_measurement = UnitOfPower.WATT
+
+    @property
+    def native_value(self):
+        """Return the state of the sensor."""
+        return self.coordinator.data.get("powerAvg")
+
+
 class EcotrackerEnergyInSensor(EcotrackerSensorBase):
     """Representation of Ecotracker Energy Counter In Sensor."""
 
@@ -148,7 +224,7 @@ class EcotrackerEnergyInSensor(EcotrackerSensorBase):
         self._attr_unique_id = f"{entry.entry_id}_energy_in"
         self._attr_device_class = SensorDeviceClass.ENERGY
         self._attr_state_class = SensorStateClass.TOTAL_INCREASING
-        self._attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
+        self._attr_native_unit_of_measurement = UnitOfEnergy.WATT_HOUR
 
     @property
     def native_value(self):
@@ -166,7 +242,7 @@ class EcotrackerEnergyOutSensor(EcotrackerSensorBase):
         self._attr_unique_id = f"{entry.entry_id}_energy_out"
         self._attr_device_class = SensorDeviceClass.ENERGY
         self._attr_state_class = SensorStateClass.TOTAL_INCREASING
-        self._attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
+        self._attr_native_unit_of_measurement = UnitOfEnergy.WATT_HOUR
 
     @property
     def native_value(self):
