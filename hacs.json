@@ -1,0 +1,5 @@
+{
+  "name": "Ecotracker",
+  "render_readme": true,
+  "domains": ["sensor"]
+}

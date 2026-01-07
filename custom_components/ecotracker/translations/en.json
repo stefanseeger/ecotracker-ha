@@ -1,0 +1,39 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Ecotracker",
+        "description": "Enter your Ecotracker device details",
+        "data": {
+          "ip_address": "IP Address",
+          "scan_interval": "Polling Interval (seconds)"
+        },
+        "data_description": {
+          "scan_interval": "How often to poll the device (1-3600 seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to device",
+      "invalid_data": "Invalid data received from device",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "Device is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ecotracker Options",
+        "description": "Configure Ecotracker settings",
+        "data": {
+          "scan_interval": "Polling Interval (seconds)"
+        },
+        "data_description": {
+          "scan_interval": "How often to poll the device (1-3600 seconds)"
+        }
+      }
+    }
+  }
+}

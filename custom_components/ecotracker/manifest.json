@@ -1,0 +1,11 @@
+{
+  "domain": "ecotracker",
+  "name": "Ecotracker",
+  "codeowners": ["@stefanseeger"],
+  "config_flow": true,
+  "documentation": "https://github.com/stefanseeger/ecotracker-ha",
+  "issue_tracker": "https://github.com/stefanseeger/ecotracker-ha/issues",
+  "requirements": [],
+  "version": "1.0.0",
+  "iot_class": "local_polling"
+}
