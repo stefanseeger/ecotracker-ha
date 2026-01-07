@@ -19,13 +19,13 @@ _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "ecotracker"
 CONF_SCAN_INTERVAL = "scan_interval"
-DEFAULT_SCAN_INTERVAL = 5
+DEFAULT_SCAN_INTERVAL = 60
 
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_IP_ADDRESS): str,
         vol.Optional(CONF_SCAN_INTERVAL, default=DEFAULT_SCAN_INTERVAL): vol.All(
-            vol.Coerce(int), vol.Range(min=1, max=3600)
+            vol.Coerce(int), vol.Range(min=1, max=86400)
         ),
     }
 )
