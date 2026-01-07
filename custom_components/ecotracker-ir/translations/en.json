@@ -2,8 +2,8 @@
   "config": {
     "step": {
       "user": {
-        "title": "Set up Ecotracker",
-        "description": "Enter your Ecotracker device details",
+        "title": "Set up Ecotracker IR",
+        "description": "Enter your Ecotracker IR device details",
         "data": {
           "ip_address": "IP Address",
           "scan_interval": "Polling Interval (seconds)"
@@ -25,8 +25,8 @@
   "options": {
     "step": {
       "init": {
-        "title": "Ecotracker Options",
-        "description": "Configure Ecotracker settings",
+        "title": "Ecotracker IR Options",
+        "description": "Configure Ecotracker IR settings",
         "data": {
           "scan_interval": "Polling Interval (seconds)"
         },

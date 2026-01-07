@@ -1,4 +1,4 @@
-"""Sensor platform for Ecotracker integration."""
+"""Sensor platform for Ecotracker IR integration."""
 
 from __future__ import annotations
 
@@ -53,7 +53,7 @@ async def async_setup_entry(
     entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Ecotracker sensors based on a config entry."""
+    """Set up Ecotracker IR sensors based on a config entry."""
     ip_address = entry.data[CONF_IP_ADDRESS]
     scan_interval = entry.data.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL)
 
@@ -78,7 +78,7 @@ async def async_setup_entry(
 
 
 class EcotrackerCoordinator(DataUpdateCoordinator):
-    """Class to manage fetching Ecotracker data."""
+    """Class to manage fetching Ecotracker IR data."""
 
     def __init__(
         self,
@@ -119,7 +119,7 @@ class EcotrackerCoordinator(DataUpdateCoordinator):
 
 
 class EcotrackerSensorBase(CoordinatorEntity, SensorEntity):
-    """Base class for Ecotracker sensors."""
+    """Base class for Ecotracker IR sensors."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""
@@ -139,7 +139,7 @@ class EcotrackerSensorBase(CoordinatorEntity, SensorEntity):
 
 
 class EcotrackerPowerSensor(EcotrackerSensorBase):
-    """Representation of Ecotracker Power Sensor."""
+    """Representation of Ecotracker IR Power Sensor."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""
@@ -157,7 +157,7 @@ class EcotrackerPowerSensor(EcotrackerSensorBase):
 
 
 class EcotrackerPowerPhase1Sensor(EcotrackerSensorBase):
-    """Representation of Ecotracker Power Phase 1 Sensor."""
+    """Representation of Ecotracker IR Power Phase 1 Sensor."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""
@@ -175,7 +175,7 @@ class EcotrackerPowerPhase1Sensor(EcotrackerSensorBase):
 
 
 class EcotrackerPowerPhase2Sensor(EcotrackerSensorBase):
-    """Representation of Ecotracker Power Phase 2 Sensor."""
+    """Representation of Ecotracker IR Power Phase 2 Sensor."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""
@@ -193,7 +193,7 @@ class EcotrackerPowerPhase2Sensor(EcotrackerSensorBase):
 
 
 class EcotrackerPowerPhase3Sensor(EcotrackerSensorBase):
-    """Representation of Ecotracker Power Phase 3 Sensor."""
+    """Representation of Ecotracker IR Power Phase 3 Sensor."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""
@@ -211,7 +211,7 @@ class EcotrackerPowerPhase3Sensor(EcotrackerSensorBase):
 
 
 class EcotrackerPowerAvgSensor(EcotrackerSensorBase):
-    """Representation of Ecotracker Power Average Sensor."""
+    """Representation of Ecotracker IR Power Average Sensor."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""
@@ -229,7 +229,7 @@ class EcotrackerPowerAvgSensor(EcotrackerSensorBase):
 
 
 class EcotrackerEnergyInSensor(EcotrackerSensorBase):
-    """Representation of Ecotracker Energy Counter In Sensor."""
+    """Representation of Ecotracker IR Energy Counter In Sensor."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""
@@ -247,7 +247,7 @@ class EcotrackerEnergyInSensor(EcotrackerSensorBase):
 
 
 class EcotrackerEnergyOutSensor(EcotrackerSensorBase):
-    """Representation of Ecotracker Energy Counter Out Sensor."""
+    """Representation of Ecotracker IR Energy Counter Out Sensor."""
 
     def __init__(self, coordinator: EcotrackerCoordinator, entry: ConfigEntry) -> None:
         """Initialize the sensor."""

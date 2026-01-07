@@ -1,4 +1,4 @@
-"""Config flow for Ecotracker integration."""
+"""Config flow for Ecotracker IR integration."""
 
 from __future__ import annotations
 
@@ -67,7 +67,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     except Exception as err:
         raise CannotConnect(f"Unexpected error: {err}") from err
 
-    return {"title": f"Ecotracker ({ip_address})"}
+    return {"title": f"Ecotracker IR ({ip_address})"}
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
