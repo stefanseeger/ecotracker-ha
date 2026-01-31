@@ -1,6 +1,6 @@
 # Ecotracker Home Assistant Integration
 
-Give me a tip: [paypal.me/StefanSeeger](https://www.paypal.com/paypalme/StefanSeeger)
+Give me a tip: [paypal.me/StefanSeeger](https://www.paypal.com/paypalme/StefanSeeger) [buymeacoffee.com/stefsee](https://buymeacoffee.com/stefsee)
 
 Custom integration for Ecotracker energy monitoring device. It directly accessed the local HTTP server.
 
